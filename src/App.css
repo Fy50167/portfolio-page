@@ -10,6 +10,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  max-width: 100%;
+  overflow: hidden;
+}
+
 .stylized {
   font-family: 'Julius Sans One', sans-serif;
 }
@@ -109,12 +114,7 @@ h3 {
   border: 2px solid #6e1835;
   margin: 15px;
   padding: 3%;
-  transition: 0.25s;
   position: relative;
-}
-
-.project:hover { 
-  transform: scale(1.05);
 }
 
 .pad-y {
@@ -131,6 +131,17 @@ h3 {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 25px;
   padding: 10px;
+}
+
+.project-text {
+  border-bottom: 1px solid white;
+  padding-bottom: 2%;
+  width: 90%;
+  margin: auto;
+}
+
+.project-text:first-of-type {
+  margin-bottom: 2%;
 }
 
 /* Mobile starts at 800px */

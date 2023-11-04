@@ -41,8 +41,8 @@ export default function About() {
                                     in. Sed rhoncus mollis diam, sit amet facilisis lectus blandit at.
                                 </p>    
                             </div>           
-                            <img className = 'portrait fade-down delay-2 animated' src = {ME} alt = 'self-image' />
-                            <div className = 'fade-down delay-3 animated w-25'>
+                            <img className = 'portrait fade-down delay-3 animated' src = {ME} alt = 'self-image' />
+                            <div className = 'fade-down delay-5 animated w-25'>
                                 <h2 className = 'stylized'>Other stuff</h2>
                                 <p>Nunc pharetra finibus est at efficitur. Praesent sed congue diam.
                                     Integer gravida dui mauris, ut interdum nunc egestas sed. Aenean sed
