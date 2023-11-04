@@ -23,6 +23,11 @@ h1 {
   font-size: 36px;
 }
 
+h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
 .wrapper {
   background-image: url('./assets/welcome-background.jpg');
   background-size: cover;
@@ -92,6 +97,40 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.project {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 40%;
+  height: 20vh;
+  border-radius: 15px;
+  border: 2px solid #6e1835;
+  margin: 15px;
+  padding: 3%;
+  transition: 0.25s;
+  position: relative;
+}
+
+.project:hover { 
+  transform: scale(1.05);
+}
+
+.pad-y {
+  padding: 5rem 0 3.5rem 0;
+}
+
+.project-text-container {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 50%;
+  height: auto;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 25px;
+  padding: 10px;
 }
 
 /* Mobile starts at 800px */

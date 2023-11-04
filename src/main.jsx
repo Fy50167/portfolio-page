@@ -7,6 +7,8 @@ import App from './App';
 import Welcome from './pages/Welcome';
 import Error from './pages/Error';
 import About from './pages/About';
+import Work from './pages/Work';
+import Contact from './pages/Contact';
 
 
 
@@ -22,7 +24,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/about',
-        element: <About title = 'About'/>
+        element: <About />
+      },
+      {
+        path: '/work',
+        element: <Work />
+      },
+      {
+        path: '/contact',
+        element: <Contact />
       }
     ],
   },
