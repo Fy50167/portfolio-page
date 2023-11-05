@@ -10,9 +10,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   max-width: 100%;
-  overflow: hidden;
 }
 
 .stylized {
@@ -38,6 +41,7 @@ h3 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   padding: 0;
   width: 100%;
   height: 100vh;
@@ -51,6 +55,15 @@ h3 {
   width: 100%;
   height: 10vh;
   z-index: 2;
+}
+
+.page-margin {
+  padding-top: 10vh;
+}
+
+.work-margin {
+  padding-top: 15vh;
+  padding-bottom: 5vh;
 }
 
 .gold {
@@ -98,10 +111,15 @@ h3 {
 .btn-arrow {
   border-radius: 0;
   padding: 0 3%;
-  bottom: 5%;
+  bottom: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.arrow-up {
+  top: 20%;
+  bottom: unset;
 }
 
 .project {
@@ -115,10 +133,11 @@ h3 {
   margin: 15px;
   padding: 3%;
   position: relative;
+  transition: 0.2s;
 }
 
-.pad-y {
-  padding: 5rem 0 3.5rem 0;
+.project:hover {
+  transform: scale(1.05);
 }
 
 .project-text-container {
@@ -142,6 +161,11 @@ h3 {
 
 .project-text:first-of-type {
   margin-bottom: 2%;
+}
+
+.contact-wrapper {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 15px;
 }
 
 /* Mobile starts at 800px */

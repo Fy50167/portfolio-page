@@ -3,10 +3,10 @@ import LOGO from '../assets/KD_Logo.png';
 export default function Navigation() {
     return (
         <>
-            <div className = 'navbar d-flex px-4 justify-content-between'>
+            <div className = 'navbar d-flex px-4 z-3 justify-content-between'>
                 <div className = 'd-flex w-50 align-items-center justify-content-start'>
                     <img className = 'logo' src = {LOGO} alt = 'logo' />
-                    <h1 className = 'gold stylized'>FRANCIS YANG</h1>
+                    <a href = '/'><h1 className = 'gold stylized'>FRANCIS YANG</h1></a>
                 </div>
                 
                 <div className = 'd-flex flex-grow-1 justify-content-end px-5'>

@@ -23,6 +23,18 @@ const projects = [
         background: BISTRO
     },
     {
+        name: "The Book Bistro",
+        techstack: "HTML, CSS, Javascript",
+        url: "https://github.com/notUnEeVeN/Book-Bistro-Website",
+        background: BISTRO
+    },
+    {
+        name: "The Book Bistro",
+        techstack: "HTML, CSS, Javascript",
+        url: "https://github.com/notUnEeVeN/Book-Bistro-Website",
+        background: BISTRO
+    },
+    {
         name: "Super Stockers",
         techstack: "node.js, MySQL, Sequelize",
         url: "https://github.com/Fy50167/stock-trader",

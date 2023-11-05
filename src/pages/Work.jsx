@@ -7,7 +7,7 @@ export default function Work() {
 
     return (
         <>
-            <div className = 'wrapper'>
+            <div className = 'wrapper h-100'>
                 <div className="animation-wrapper">
                     <div className="particle particle-1"></div>
                     <div className="particle particle-2"></div>
@@ -15,7 +15,7 @@ export default function Work() {
                     <div className="particle particle-4"></div>
                 </div>
 
-                <div className = 'w-100 h-100 pad-y d-flex flex-wrap align-items-end justify-content-center'>
+                <div className = 'work-margin w-100 h-auto d-flex flex-wrap align-items-center justify-content-center'>
 
                     {projects.map((project) => (
                         <Project 
