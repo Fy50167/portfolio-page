@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom';
-import Navigation from './components/Navigation';
+import Header from './components/Header';
 import Socials from './components/Socials';
 
 
@@ -10,7 +10,7 @@ function App(props) {
 
   const renderNav = () => {
     if (welcome) {
-      return <Navigation />
+      return <Header />
     }
   }
 

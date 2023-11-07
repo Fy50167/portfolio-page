@@ -12,6 +12,10 @@ export default function About() {
 
     const changeScroll = () => {
         setIsScroll(!isScroll);
+        const upArrow = document.querySelector('#arrow-up');
+        if (!upArrow.classList.contains('display')) {
+            upArrow.classList.add('display');
+        }
     }
 
     return (
@@ -62,7 +66,7 @@ export default function About() {
                         classNames = 'scroll-lower'
                     >
                         <div className = 'page-margin w-100 h-100 d-flex align-items-center justify-content-evenly z-1 position-fixed lower-content'>    
-                            <button onClick = {() => changeScroll() } className = 'position-absolute btn btn-arrow arrow-up'><img src = {UP} className = 'arrow' /></button>
+                            <button onClick = {() => changeScroll() } className = 'position-absolute btn btn-arrow arrow-up' id = 'arrow-up'><img src = {UP} className = 'arrow' /></button>
                             <div className = 'w-25'>
                                 <h2 className = 'stylized'>About Me</h2>
                                 <p>Nunc pharetra finibus est at efficitur. Praesent sed congue diam.
@@ -88,7 +92,7 @@ export default function About() {
                     </CSSTransition>
                 </div>
 
-                <div className = 'mobile page-margin w-100 h-auto d-flex flex-column align-items-center justify-content-evenly z-2'>
+                <div className = 'mobile page-margin w-100 h-auto d-flex flex-column align-items-center position-relative justify-content-evenly z-2'>
                         <div className = 'text-div'>
                             <h2 className = 'stylized'>About Me</h2>
                             <p>Nunc pharetra finibus est at efficitur. Praesent sed congue diam.
