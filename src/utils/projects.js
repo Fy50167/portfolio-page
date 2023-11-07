@@ -18,7 +18,7 @@ const projects = [
         name: "Super Stockers",
         techstack: "node.js, MySQL, Sequelize",
         url: "https://github.com/Fy50167/stock-trader",
-        desploy: "floating-wildwood-52719-0a69bbab7cea.herokuapp.com",
+        deploy: "https://floating-wildwood-52719-0a69bbab7cea.herokuapp.com",
         background: STOCKERS,
         description: "Application that combines a basic HTML and CSS front-end with a MySQL back-end connection via Sequelize to simulate a stock-trading service. Users must create accounts and login in order to view market. \
         Once logged in, they can update their balance and purchase various stocks from the displayed market on the home page. They can also go to their profile to view a full list of all stocks currently in their inventory \
@@ -35,11 +35,12 @@ const projects = [
     {
         name: "The Lumebox",
         techstack: "Shopify Liquid",
-        url: "https://thelumebox.com",
+        url: "https://github.com/Fy50167/lumebox",
+        deploy: "https://www.thelumebox.com",
         background: UPWORK,
         description: "A Shopify E-Commerce website built as part of a Freelance web development job for the Red Light Therapy company Lumebox. Although Shopify's built-in customizer was partially used in order to built the site, \
         because the client already had a design made for the store by a professional graphic designer before hiring me much of it had to be built from the ground up due to not being conducive with the templates natively available \
-        in the customizer. Note that small changes have been made to the "
+        in the customizer. Note that small changes have been made to the site since I stopped working on it, but overall the code remains largely the same."
     }
 ]
 

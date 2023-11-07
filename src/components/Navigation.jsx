@@ -1,11 +1,12 @@
-import LOGO from '../assets/KD_Logo.png';
+import { Route, useLocation, Link } from "react-router-dom";
 
 export default function Navigation() {
     return (
         <>           
-                    <a href = '/about' className = 'gold nav-link stylized'>About</a>
-                    <a href = '/work' className = 'gold nav-link stylized'>Work</a>
-                    <a href = '/contact' className = 'gold nav-link stylized'>Contact</a>
+            <a id = 'about' href = '/about' className = {location.pathname === '/about' ? 'gold nav-link stylized active': 'gold nav-link stylized'}>About</a>
+            <a id = 'work' href = '/work' className = {location.pathname === '/work' ? 'gold nav-link stylized active': 'gold nav-link stylized'}>Work</a>
+            <a id = 'resume' href = '/resume' className = {location.pathname === '/resume' ? 'gold nav-link stylized active': 'gold nav-link stylized'}>Resume</a>
+            <a id = 'contact' href = '/contact' className = {location.pathname === '/contact' ? 'gold nav-link stylized active': 'gold nav-link stylized'}>Contact</a>
         </>
     )
 }
