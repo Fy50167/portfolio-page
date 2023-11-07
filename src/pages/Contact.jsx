@@ -1,19 +1,25 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import swal from '@sweetalert/with-react'
 
 
 
 export default function Contact() {
     document.title = 'Francis Yang - Contact';
-    console.log(import.meta.env.SERVICE_ID);
-    console.log(import.meta.env.TEMPLATE_ID);
 
     const form = useRef();
     
     const sendEmail = (e) => {
         e.preventDefault();
+
+        swal({
+            title: "Your message has been received!",
+            text: "I'll get back to you as soon as possible.",
+            buttons: {
+              cancel: "Close",
+            }
+          })
         
-    
         emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, form.current, import.meta.env.VITE_PUBLIC_KEY)
         .then((result) => {
             e.target.reset();
@@ -36,7 +42,7 @@ export default function Contact() {
                     <div className = 'page-margin w-100 h-100 d-flex flex-column align-items-center justify-content-center z-1 position-relative'>  
                         <div className = 'fade-down delay-1 animated w-100 h-auto'>
                             <h1 className = 'stylized gold large-text mb-4'>CONTACT ME</h1>
-                            <form className = 'w-50 h-auto m-auto p-4 contact-wrapper' ref={form} onSubmit={sendEmail}>
+                            <form className = 'h-auto m-auto p-4 contact-wrapper' ref={form} onSubmit={sendEmail}>
                                 <div className="form-group mb-3">
                                     <label className = 'mb-3'>Name</label>
                                     <input className="form-control" type="text" name="user_name" />

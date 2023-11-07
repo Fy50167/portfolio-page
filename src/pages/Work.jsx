@@ -15,7 +15,7 @@ export default function Work() {
                     <div className="particle particle-4"></div>
                 </div>
 
-                <div className = 'work-margin w-100 h-auto d-flex flex-wrap align-items-center justify-content-center'>
+                <div className = 'work-margin w-100 h-auto d-flex flex-column flex-md-row flex-wrap align-items-center justify-content-center'>
 
                     {projects.map((project) => (
                         <Project 

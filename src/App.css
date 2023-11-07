@@ -14,6 +14,10 @@ a {
   text-decoration: none;
 }
 
+.monitor {
+  display: none !important;
+}
+
 body {
   max-width: 100%;
 }
@@ -23,7 +27,7 @@ body {
 }
 
 .large-text {
-  font-size: 72px;
+  font-size: 48px;
 }
 
 h1 {
@@ -43,22 +47,27 @@ h3 {
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding: 0;
+  padding-bottom: 5%;
   width: 100%;
   height: 100vh;
   text-align: center;
   z-index: -1;
 }
 
+.fixed-back {
+  height: 100%;
+}
+
 .navbar {
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0);
   width: 100%;
   height: 10vh;
   z-index: 2;
 }
 
 .page-margin {
-  padding-top: 10vh;
+  padding-top: 25%;
 }
 
 .work-margin {
@@ -97,7 +106,7 @@ h3 {
 }
 
 .portrait {
-  width: 25%;
+  width: 50%;
   height: auto;
   border-radius: 50%;
 }
@@ -126,7 +135,7 @@ h3 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 40%;
+  width: 90%;
   height: 20vh;
   border-radius: 15px;
   border: 2px solid #6e1835;
@@ -166,9 +175,101 @@ h3 {
 .contact-wrapper {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 15px;
+  width: 90%;
+}
+
+.social-container {
+  width: 100%;
+  height: auto;
+  bottom: 0;
+}
+
+.socials {
+  height: 30px;
+  width: 30px;
+  margin: 0;
+  transition: 0.2s;
+}
+
+.socials:hover {
+  transform: scale(1.20);
+}
+
+.linkedin {
+  background-color: #007BB5;
+}
+
+.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.upwork {
+  background-color: #14A800;
+}
+
+.swal-text {
+  color: black;
+}
+
+.text-div {
+  width: 90%;
+  margin: 5% 0;
 }
 
 /* Mobile starts at 800px */
+@media screen and (min-width: 800px) {
+
+  .monitor {
+    display: block !important;
+  }
+
+  .mobile {
+    display: none !important;
+  }
+
+  .fixed-back {
+    height: 100vh;
+  }
+
+  .large-text {
+    font-size: 72px;
+  }
+
+  .navbar {
+    opacity: 0.9;
+  }
+
+  .page-margin {
+    padding-top: 10vh;
+  }
+
+  .social-container {
+    width: 3%;
+    height: 100vh;
+    right: 0;
+  }
+
+  .socials {
+    height: auto;
+    width: 100%;
+  }
+
+  .portrait {
+    width: 25%;
+  }
+
+  .text-div {
+    margin: 0;
+  }
+  
+  .project {
+    width: 40%;
+  }
+
+  .contact-wrapper {
+    width: 50%;
+  }
+}
 
 
 
