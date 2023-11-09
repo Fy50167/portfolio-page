@@ -19,7 +19,7 @@ export default function Work() {
 
                     {projects.map((project) => (
                         <Project 
-                            position = {projects.indexOf(project)}
+                            key = {projects.indexOf(project)}
                             name = {project.name}
                             techstack = {project.techstack}
                             deploy= {project.deploy}
