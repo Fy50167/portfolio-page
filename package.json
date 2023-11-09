@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
+    "@popperjs/core": "^2.11.8",
     "@sweetalert/with-react": "^0.1.1",
     "bootstrap": "^5.3.2",
     "dotenv": "^16.3.1",
