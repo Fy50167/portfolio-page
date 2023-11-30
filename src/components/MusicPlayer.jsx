@@ -19,12 +19,14 @@ function MusicPlayer() {
     const [songTitle, setSongTitle] = useState(songTitles[0]);
     const [index, setIndex] = useState(0);
     const [isCollapsed, setIsCollapsed] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
 
     const changeSong = ((i) => {
       setIndex(i);
       setSong(songs[i]);
       setSongTitle(songTitles[i]);
       pause();
+      setIsPlaying(false);
     });
 
 
