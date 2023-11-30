@@ -18,7 +18,6 @@ function MusicPlayer() {
     const [song, setSong] = useState(songs[0]);
     const [songTitle, setSongTitle] = useState(songTitles[0]);
     const [index, setIndex] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(true);
 
     const changeSong = ((i) => {
@@ -26,13 +25,12 @@ function MusicPlayer() {
       setSong(songs[i]);
       setSongTitle(songTitles[i]);
       pause();
-      setIsPlaying(false);
     });
 
+
     const [play, { pause, duration, sound }] = useSound(song, { volume: 0.5 });
+    console.log(songTitle);
     
-
-
     const forwardSong = () => {
       if (index + 1 == songs.length) {
         changeSong(0);

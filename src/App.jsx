@@ -5,7 +5,6 @@ import Socials from './components/Socials';
 import MusicPlayer from './components/MusicPlayer';
 
 
-
 function App() {
   const [welcome, setWelcome] = useState(true);
 

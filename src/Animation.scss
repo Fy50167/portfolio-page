@@ -228,6 +228,22 @@ $time-4: 200s;
   animation-timing-function: linear; 
 }
 
+@keyframes fadeIn {
+  0% { 
+    opacity: 0; 
+    visibility: hidden;
+  }   
+100% { 
+    opacity: 1; 
+    visibility: visible;
+  }
+}
+
+.music-player {
+  animation: fadeIn;
+  animation-duration: 3s;
+}
+
 
 
 
