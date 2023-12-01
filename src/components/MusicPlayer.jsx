@@ -31,11 +31,10 @@ function MusicPlayer() {
 
 
     const [play, { pause, duration, sound }] = useSound(song, { volume: 0.5 });
-    console.log(songTitle);
     
     const forwardSong = () => {
       if (index + 1 == songs.length) {
-        changeSong(0);
+        changeSong(0);       
       } else {
         changeSong(index + 1);
       }
@@ -83,12 +82,17 @@ function MusicPlayer() {
           setCurrTime({
             min,
             sec
-          });
+          });          
         }
       }, 1000);
       return () => clearInterval(interval);
     }, [sound]);
 
+    useEffect(() => {
+      if (currTime.min === time.min && currTime.sec + 1 === time.sec) {
+        setIsPlaying(false);
+      }
+    }, [currTime]);
     
     const changeButton = () => {
         if (isPlaying) {

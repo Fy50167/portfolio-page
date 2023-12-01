@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import Socials from './components/Socials';
@@ -17,9 +17,9 @@ function App() {
   return (
     <>
       {renderNav()}
-      <main>
-        <MusicPlayer/>
-        <Socials />
+      <MusicPlayer/>
+      <Socials />
+      <main>   
         <Outlet context = {setWelcome}/>
       </main>
     </>
