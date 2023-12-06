@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Welcome() {
 
@@ -23,7 +24,7 @@ export default function Welcome() {
                     <div className = 'fade-down delay-1 animated w-100'>
                         <h2 className = 'gold mb-4 fs-4'>You're visiting the site of:</h2>
                         <h1 className = 'gold mb-4 stylized large-text'>FRANCIS YANG</h1>
-                        <a href = '/about' className = 'enter btn'>Enter</a>
+                        <Link to='about' className = 'enter btn'>Enter</Link>
                     </div>
                 </div>
             </div>

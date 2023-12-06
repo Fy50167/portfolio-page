@@ -1,11 +1,12 @@
+import { NavLink } from "react-router-dom";
 
 export default function Navigation() {
     return (
         <>           
-            <a id = 'about' href = '/about' className = {location.pathname === '/about' ? 'gold nav-link stylized active': 'gold nav-link stylized'}>About</a>
-            <a id = 'work' href = '/work' className = {location.pathname === '/work' ? 'gold nav-link stylized active': 'gold nav-link stylized'}>Work</a>
-            <a id = 'resume' href = '/resume' className = {location.pathname === '/resume' ? 'gold nav-link stylized active': 'gold nav-link stylized'}>Resume</a>
-            <a id = 'contact' href = '/contact' className = {location.pathname === '/contact' ? 'gold nav-link stylized active': 'gold nav-link stylized'}>Contact</a>
+            <NavLink id = 'about' to='/about' activeClassName = 'active' className = 'gold nav-link stylized'>About</NavLink>
+            <NavLink id = 'work' to='/work' activeClassName = 'active' className = 'gold nav-link stylized'>Work</NavLink>
+            <NavLink id = 'resume' to='/resume' activeClassName = 'active' className = 'gold nav-link stylized'>Resume</NavLink>
+            <NavLink id = 'contact' to='/contact' activeClassName = 'active' className = 'gold nav-link stylized'>Contact</NavLink>
         </>
     )
 }
