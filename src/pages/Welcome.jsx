@@ -24,7 +24,7 @@ export default function Welcome() {
                     <div className = 'fade-down delay-1 animated w-100'>
                         <h2 className = 'gold mb-4 fs-4'>You're visiting the site of:</h2>
                         <h1 className = 'gold mb-4 stylized large-text'>FRANCIS YANG</h1>
-                        <Link to='about' className = 'enter btn'>Enter</Link>
+                        <Link to='about' className = 'enter btn' onClick = {() => setWelcome(true)}>Enter</Link>
                     </div>
                 </div>
             </div>
