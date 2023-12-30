@@ -25,8 +25,8 @@ const projects = [
         the home page."
     },
     {
-        name: "Super Stockers",
-        techstack: "node.js, MySQL, Sequelize",
+        name: "Python Newsfeed",
+        techstack: "Python, Flask, SQLalchemy",
         url: "https://github.com/Fy50167/stock-trader",
         deploy: "https://limitless-lake-22682-94d9006e293e.herokuapp.com/",
         background: STOCKERS,

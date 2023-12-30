@@ -38,19 +38,19 @@ export default function About() {
                             <button onClick = {() => changeScroll() } className = 'fade-down delay-2 animated position-absolute btn btn-arrow z-2'><img src = {DOWN} className = 'arrow' /></button>
                             <div className = 'fade-down delay-1 animated w-25'>
                                 <h2 className = 'stylized'>About Me</h2>
-                                <p>Web developer and software engineer based in Southern California proficient in
-                                    multiple technologies such as node, MySQL, noSQL, the MERN stack, Liquid, and Python.
-                                    Although lacking in knowledge concerning other languages such as C++ and Java, I intend 
-                                    to learn them once I've really mastered the languages that I'm working with right now!
+                                <p>Full freelance stack web developer and software engineer based in Southern California. Proficient in
+                                    multiple technologies such as node, MySQL, noSQL, the MERN stack, Liquid, but with a heavy
+                                    specialization in the MERN stack and all things React. Also studying other languages such as Python,
+                                    C#, and Java as I apply for junior developer positions.  
                                 </p>    
                             </div>           
                             <img className = 'portrait fade-down delay-3 animated' src = {ME} alt = 'self-image' />
                             <div className = 'fade-down delay-5 animated w-25'>
                                 <h2 className = 'stylized'>My Background</h2>
                                 <p>Graduated from the University of Southern California, San Diego, as a double major
-                                    in Cognitive Neuroscience as well as Music. Although I entered college with these two majors
+                                    in Cognitive Neuroscience as well as Music. Entered college with these two majors
                                     with the intent to conduct research concerning the brain and the way it is impacted by sound,
-                                    I also developed an interest in Computer Science through my time at UCSD that I ultimately decided 
+                                    but I also developed an interest in Computer Science through my time at UCSD that I ultimately decided 
                                     to pursue instead. 
                                 </p>    
                             </div>
@@ -67,7 +67,7 @@ export default function About() {
                             <div className = 'w-25'>
                                 <h2 className = 'stylized'>Experience</h2>
                                 <p>
-                                    Since I developed an interested in computer science so late (around halfway through my junior year of college), I wasn't able to take many classes concerning it as a double major.
+                                    Since I developed an interested in computer science so late (around halfway through my junior year of college), I wasn't able to take many classes concerning it if I wanted to graduate on time.
                                     Instead, I learned basic Front-End languages such as HTML, CSS, Javascript, and Liquid on my own during my senior year, and took a coding bootcamp from UC Berkeley shortly after graduation
                                     to gain some experience with the Back-End as well. Currently, I'm spending my time making projects and studying data algorithms in preparation for job interviews.
                                 </p>    
