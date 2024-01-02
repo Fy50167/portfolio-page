@@ -1,5 +1,5 @@
 import SPACE from '../assets/space.png';
-import STOCKERS from '../assets/super-stockers.jpeg';
+import BADGE from '../assets/badge.png';
 import BACKEND from '../assets/backend.png';
 import UPWORK from '../assets/lumebox.png';
 
@@ -25,14 +25,13 @@ const projects = [
         the home page."
     },
     {
-        name: "Python Newsfeed",
-        techstack: "Python, Flask, SQLalchemy",
-        url: "https://github.com/Fy50167/stock-trader",
-        deploy: "https://limitless-lake-22682-94d9006e293e.herokuapp.com/",
-        background: STOCKERS,
-        description: "Application that combines a basic HTML and CSS front-end with a MySQL back-end connection via Sequelize to simulate a stock-trading service. Users must create accounts and login in order to view market. \
-        Once logged in, they can update their balance and purchase various stocks from the displayed market on the home page. They can also go to their profile to view a full list of all stocks currently in their inventory \
-        along with quantities, as well as adjust said quantities with corresponding changes being made to their balance. A collaborative project."
+        name: "Badge Generator",
+        techstack: "C#",
+        url: "https://github.com/Fy50167/c--badge-maker",
+        background: BADGE,
+        description: "Basic C# application meant to demonstrate a rudimentary knowledge of C# fundamentals. Allows users to run the application and generate either a custom badge or random ones via an API. If choosing to make a \
+        custom badge users are also prompted for information such as name, employee ID, and a url for a picture. If the random generation is chosen, 10 badges are generated with all inputs randomly pulled from the API. Once generated, \
+        badges should feature all relevant information on a badge template in png format which can then be downloaded."
     },
     {
         name: 'Social Network Backend API',
