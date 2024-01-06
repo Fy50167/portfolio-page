@@ -8,8 +8,7 @@ import NEXT from '../assets/next.png';
 import BACK from '../assets/back.png';
 import MUSIC from '../assets/music.png';
 import CLOSE from '../assets/close.png';
-import { useEffect, useState, memo } from 'react'; 
-import useSound from 'use-sound';
+import { useEffect, useState, useRef } from 'react'; 
 const songs = [ASHES, DISCONNECT, DANCE];
 const songTitles = ['Ashes to Ashes', 'disConnect', 'Moonlight Dance'];
 
@@ -17,6 +16,8 @@ function MusicPlayer() {
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(true);
+
+    const musicPlayer = useRef();
 
     const playPause = () => {
       setIsPlaying(!isPlaying);
@@ -40,6 +41,7 @@ function MusicPlayer() {
             </div>
           :
           <div className = 'position-fixed d-flex flex-column justify-content-evenly align-items-center music-player open py-3'>
+            <audio ref = {musicPlayer} src = {ASHES} preload = 'metadata'></audio>
             <img className = 'close position-absolute mouse-pointer' src = {CLOSE} onClick = {expandCollapse} />
             <h2 className = 'stylized'>Music Player</h2>
             <img src = {AVATAR} alt = 'avatar' className = 'avatar' />
@@ -71,4 +73,4 @@ function MusicPlayer() {
     )
 }
 
-export default memo(MusicPlayer);
+export default MusicPlayer;
