@@ -15,7 +15,12 @@ const songTitles = ['Ashes to Ashes', 'disConnect', 'Moonlight Dance'];
 
 function MusicPlayer() {
 
+    const [isPlaying, setIsPlaying] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(true);
+
+    const playPause = () => {
+      setIsPlaying(!isPlaying);
+    }
 
     const expandCollapse = () => {
       if (isCollapsed) {
@@ -57,7 +62,7 @@ function MusicPlayer() {
             
             <div className = 'music-controls d-flex align-items-center justify-content-evenly w-100 px-4'>
                 <img src = {BACK} alt = 'back button' className = 'control-btn mouse-pointer'/>
-                <img src = {( isPlaying ? PAUSE : PLAY)} alt = 'play/pause' className = 'control-btn mouse-pointer'/>
+                <img src = {( isPlaying ? PAUSE : PLAY)} alt = 'play/pause' className = 'control-btn mouse-pointer' onClick = {playPause}/>
                 <img src = {NEXT} alt = 'next button' className = 'control-btn mouse-pointer'/>
             </div>
          </div>
