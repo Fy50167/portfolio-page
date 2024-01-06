@@ -21,6 +21,8 @@ function MusicPlayer() {
     const musicPlayer = useRef();
     const progressBar = useRef();
 
+
+
     const calculateTime = (secs) => {
       const minutes = Math.floor(secs / 60);
       const seconds = Math.floor(secs % 60);
@@ -53,27 +55,24 @@ function MusicPlayer() {
       setCurrentTime(Math.floor(musicPlayer.current.currentTime));
     }
 
-    const setIndex = (i) => {
+    const changeSong = ((i) => {
       setSongIndex(i);
-    }
+      setCurrentSong(songlist[i]);
+    });
     
     const goBack = () => {
       if (songIndex === 0) {
-        setIndex(songlist.length - 1);
-        setCurrentSong(songlist[songIndex]);
+        changeSong(songlist.length - 1)
       } else {
-        setIndex(songIndex - 1);
-        setCurrentSong(songlist[songIndex]);
+        changeSong(songIndex - 1);
       }
     };
 
     const goForward = () => {
       if (songIndex === songlist.length - 1) {
-        setIndex(0);
-        setCurrentSong(songlist[songIndex]);
+        changeSong(0);
       } else {
-        setIndex(songIndex + 1);
-        setCurrentSong(songlist[songIndex]);
+        changeSong(songIndex + 1)
       }
     };
 
@@ -92,7 +91,7 @@ function MusicPlayer() {
             <img className = 'close position-absolute mouse-pointer' src = {CLOSE} onClick = {expandCollapse} />
             <h2 className = 'stylized'>Music Player</h2>
             <img src = {AVATAR} alt = 'avatar' className = 'avatar' />
-            <h3 className = 'stylized'></h3>
+            <h3 className = 'stylized'>{currentSong.title}</h3>
 
             <div>
                 <div className= 'd-flex justify-content-center'>
@@ -114,7 +113,7 @@ function MusicPlayer() {
             <div className = 'music-controls d-flex align-items-center justify-content-evenly w-100 px-4'>
                 <img src = {BACK} alt = 'back button' className = 'control-btn mouse-pointer' onClick = {goBack}/>
                 <img src = {( isPlaying ? PAUSE : PLAY)} alt = 'play/pause' className = 'control-btn mouse-pointer' onClick = {playPause}/>
-                <img src = {NEXT} alt = 'next button' className = 'control-btn mouse-pointer'/>
+                <img src = {NEXT} alt = 'next button' className = 'control-btn mouse-pointer' onClick = {goForward}/>
             </div>
          </div>
           )} 
