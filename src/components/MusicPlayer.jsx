@@ -15,6 +15,7 @@ function MusicPlayer() {
     const [duration, setDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const [songs, setSongs] = useState(songlist);
+    const [songIndex, setSongIndex] = useState(0);
     const [currentSong, setCurrentSong] = useState(songlist[0]);
 
     const musicPlayer = useRef();
@@ -52,6 +53,30 @@ function MusicPlayer() {
       setCurrentTime(Math.floor(musicPlayer.current.currentTime));
     }
 
+    const setIndex = (i) => {
+      setSongIndex(i);
+    }
+    
+    const goBack = () => {
+      if (songIndex === 0) {
+        setIndex(songlist.length - 1);
+        setCurrentSong(songlist[songIndex]);
+      } else {
+        setIndex(songIndex - 1);
+        setCurrentSong(songlist[songIndex]);
+      }
+    };
+
+    const goForward = () => {
+      if (songIndex === songlist.length - 1) {
+        setIndex(0);
+        setCurrentSong(songlist[songIndex]);
+      } else {
+        setIndex(songIndex + 1);
+        setCurrentSong(songlist[songIndex]);
+      }
+    };
+
     
 
     return (
@@ -87,7 +112,7 @@ function MusicPlayer() {
             
             
             <div className = 'music-controls d-flex align-items-center justify-content-evenly w-100 px-4'>
-                <img src = {BACK} alt = 'back button' className = 'control-btn mouse-pointer'/>
+                <img src = {BACK} alt = 'back button' className = 'control-btn mouse-pointer' onClick = {goBack}/>
                 <img src = {( isPlaying ? PAUSE : PLAY)} alt = 'play/pause' className = 'control-btn mouse-pointer' onClick = {playPause}/>
                 <img src = {NEXT} alt = 'next button' className = 'control-btn mouse-pointer'/>
             </div>
