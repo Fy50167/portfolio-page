@@ -16,8 +16,21 @@ function MusicPlayer() {
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(true);
+    const [duration, setDuration] = useState(0);
 
     const musicPlayer = useRef();
+
+    useEffect(() => {
+      setDuration(Math.floor(musicPlayer.duration));
+    }, [musicPlayer?.current?.loadedmetadata, musicPlayer?.current?.readyState]);
+
+    const calculateTime = (secs) => {
+      const minutes = Math.floor(secs / 60);
+      const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+      const seconds = Math.floor(secs % 60);
+      const returnedSeconds = secs < 10 ? `0${seconds}` : `${seconds}`;
+      return `${returnedMinutes} : ${returnedSeconds}` 
+    }
 
     const playPause = () => {
       const prevValue = isPlaying
@@ -59,7 +72,7 @@ function MusicPlayer() {
                         0:0/
                     </p>
                     <p>
-                        0:0
+                        {(duration && !isNan(duration)) && calculateTime(duration)}
                     </p>
                 </div>
                     <input
