@@ -1,4 +1,4 @@
-import { songlist } from '../utils/audio';
+import songlist from '../utils/audio';
 import AVATAR from '../assets/KD_Avatar_Circle.png';
 import PLAY from '../assets/play.png';
 import PAUSE from '../assets/pause.png';
@@ -24,7 +24,7 @@ function MusicPlayer() {
       const minutes = Math.floor(secs / 60);
       const seconds = Math.floor(secs % 60);
       const returnedSeconds = secs < 10 ? `0${seconds}` : `${seconds}`;
-      return `${minutes} : ${returnedSeconds}` 
+      return `${minutes}:${returnedSeconds}` 
     }
 
     const playPause = () => {
@@ -32,7 +32,9 @@ function MusicPlayer() {
       setIsPlaying(!prevValue);
       if (!prevValue) {
         musicPlayer.current.play();
+        musicPlayer.current.volume = 0.6;
       } else {
+        musicPlayer.current.volume = 0.6;
         musicPlayer.current.pause();
       }
     }
@@ -43,6 +45,11 @@ function MusicPlayer() {
       } else {
         setIsCollapsed(true);
       }
+    }
+
+    const setTimes = () => {
+      setDuration(Math.floor(musicPlayer.current.duration));
+      setCurrentTime(Math.floor(musicPlayer.current.currentTime));
     }
 
     
@@ -56,7 +63,7 @@ function MusicPlayer() {
             </div>
           :
           <div className = 'position-fixed d-flex flex-column justify-content-evenly align-items-center music-player open py-3'>
-            <audio ref = {musicPlayer} src = {currentSong.url} onLoadedmetadata = {() => setDuration(Math.floor(musicPlayer.current.duration))} onTimeUpdate={() => setCurrentTime(Math.floor(musicPlayer.current.currentTime))}></audio>
+            <audio ref = {musicPlayer} src = {currentSong.url} onLoadedMetadata = {setTimes} onTimeUpdate={() => setCurrentTime(Math.floor(musicPlayer.current.currentTime))}></audio>
             <img className = 'close position-absolute mouse-pointer' src = {CLOSE} onClick = {expandCollapse} />
             <h2 className = 'stylized'>Music Player</h2>
             <img src = {AVATAR} alt = 'avatar' className = 'avatar' />
@@ -65,10 +72,10 @@ function MusicPlayer() {
             <div>
                 <div className= 'd-flex justify-content-center'>
                     <p>
-                        {(currentTime) && calculateTime(currentTime)}/
+                        {calculateTime(currentTime)}/
                     </p>
                     <p>
-                        {(duration) && calculateTime(duration)}
+                        {duration && calculateTime(duration)}
                     </p>
                 </div>
                     <input
