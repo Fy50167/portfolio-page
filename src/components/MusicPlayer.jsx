@@ -15,95 +15,8 @@ const songTitles = ['Ashes to Ashes', 'disConnect', 'Moonlight Dance'];
 
 function MusicPlayer() {
 
-    const [song, setSong] = useState(songs[0]);
-    const [songTitle, setSongTitle] = useState(songTitles[0]);
-    const [index, setIndex] = useState(0);
     const [isCollapsed, setIsCollapsed] = useState(true);
-    const [isPlaying, setIsPlaying] = useState(false);
 
-    const changeSong = ((i) => {
-      setIndex(i);
-      setSong(songs[i]);
-      setSongTitle(songTitles[i]);
-      pause();
-      setIsPlaying(false);
-    });
-
-
-    const [play, { pause, duration, sound }] = useSound(song, { volume: 0.5 });
-    
-    const forwardSong = () => {
-      if (index + 1 == songs.length) {
-        changeSong(0);       
-      } else {
-        changeSong(index + 1);
-      }
-    };
-
-    const backwardSong = () => {
-      if (index==0) {
-        changeSong(songs.length - 1);
-      } else {
-        changeSong(index - 1);
-      }
-    };
-
-    const [time, setTime] = useState({
-      min: "",
-      sec: ""
-    });
-
-    const [currTime, setCurrTime] = useState({
-      min: "",
-      sec: ""
-    });
-
-    const [seconds, setSeconds] = useState();
-
-    useEffect(() => {
-      if (duration) {
-        const sec = duration / 1000;
-        const min = Math.floor(sec / 60);
-        const secRemain = Math.floor(sec % 60);
-        setTime({
-          min: min,
-          sec: secRemain
-        });
-      }
-    }, [duration]);
-
-    
-    useEffect(() => {
-      const interval = setInterval(() => {
-        if (sound) {
-          setSeconds(sound.seek([]));
-          const min = Math.floor(sound.seek([]) / 60);
-          const sec = Math.floor(sound.seek([]) % 60);
-          setCurrTime({
-            min,
-            sec
-          });          
-        }
-      }, 1000);
-      return () => clearInterval(interval);
-    }, [sound]);
-
-    useEffect(() => {
-      if (currTime.min === time.min && currTime.sec + 1 === time.sec) {
-        setIsPlaying(false);
-      }
-    }, [currTime]);
-    
-    const changeButton = () => {
-        if (isPlaying) {
-          pause(); 
-          setIsPlaying(false);
-        } else {
-          play();
-          setIsPlaying(true);
-        }
-      };
-    
     const expandCollapse = () => {
       if (isCollapsed) {
         setIsCollapsed(false);
@@ -130,30 +43,22 @@ function MusicPlayer() {
             <div>
                 <div className= 'd-flex justify-content-center'>
                     <p>
-                        {currTime.min}:{currTime.sec}/
+                        0:0
                     </p>
                     <p>
-                        {time.min}:{time.sec}
+                        0:0
                     </p>
                 </div>
                     <input
                       type="range"
-                      min="0"
-                      max={duration / 1000}
-                      default="0"
-                      value={seconds}
-                      className="duration mouse-pointer"
-                      onChange={(e) => {
-                        sound.seek([e.target.value]);
-                    }}
-                />
+                  />
             </div>
             
             
             <div className = 'music-controls d-flex align-items-center justify-content-evenly w-100 px-4'>
-                <img src = {BACK} alt = 'back button' className = 'control-btn mouse-pointer' onClick = {backwardSong}/>
-                <img src = {( isPlaying ? PAUSE : PLAY)} alt = 'play/pause' className = 'control-btn mouse-pointer' onClick = {changeButton}/>
-                <img src = {NEXT} alt = 'next button' className = 'control-btn mouse-pointer' onClick = {forwardSong}/>
+                <img src = {BACK} alt = 'back button' className = 'control-btn mouse-pointer'/>
+                <img src = {( isPlaying ? PAUSE : PLAY)} alt = 'play/pause' className = 'control-btn mouse-pointer'/>
+                <img src = {NEXT} alt = 'next button' className = 'control-btn mouse-pointer'/>
             </div>
          </div>
           )} 

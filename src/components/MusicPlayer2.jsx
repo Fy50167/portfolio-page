@@ -15,9 +15,9 @@ const songTitles = ['Ashes to Ashes', 'disConnect', 'Moonlight Dance'];
 
 function MusicPlayer2() {
     return (
-        <>
-        
-        </>
+        <audio src = {ASHES} preload = 'metadata'>
+
+        </audio>
     )
 }
 
