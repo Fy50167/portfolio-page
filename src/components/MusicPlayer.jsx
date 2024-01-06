@@ -20,8 +20,16 @@ function MusicPlayer() {
 
     const musicPlayer = useRef();
     const progressBar = useRef();
+    const hasPageBeenRendered = useRef(false);
 
-
+    useEffect(() => {
+      if (hasPageBeenRendered.current) {
+        musicPlayer.current.play();
+        musicPlayer.current.volume = 0.5;
+        setIsPlaying(true);
+      }
+      hasPageBeenRendered.current = true;
+    }, [currentSong])
 
     const calculateTime = (secs) => {
       const minutes = Math.floor(secs / 60);
@@ -31,7 +39,7 @@ function MusicPlayer() {
     }
 
     const playPause = () => {
-      const prevValue = isPlaying
+      const prevValue = isPlaying;
       setIsPlaying(!prevValue);
       if (!prevValue) {
         musicPlayer.current.play();
@@ -62,7 +70,7 @@ function MusicPlayer() {
     
     const goBack = () => {
       if (songIndex === 0) {
-        changeSong(songlist.length - 1)
+        changeSong(songlist.length - 1);
       } else {
         changeSong(songIndex - 1);
       }
@@ -80,6 +88,7 @@ function MusicPlayer() {
 
     return (
         <>
+          <audio ref = {musicPlayer} src = {currentSong.url} onLoadedMetadata = {setTimes} onTimeUpdate={() => setCurrentTime(Math.floor(musicPlayer.current.currentTime))}></audio>
           {(isCollapsed?
           
             <div className = 'position-fixed btn music-player d-flex justify-content-center align-items-center' onClick = {expandCollapse}>
@@ -87,7 +96,6 @@ function MusicPlayer() {
             </div>
           :
           <div className = 'position-fixed d-flex flex-column justify-content-evenly align-items-center music-player open py-3'>
-            <audio ref = {musicPlayer} src = {currentSong.url} onLoadedMetadata = {setTimes} onTimeUpdate={() => setCurrentTime(Math.floor(musicPlayer.current.currentTime))}></audio>
             <img className = 'close position-absolute mouse-pointer' src = {CLOSE} onClick = {expandCollapse} />
             <h2 className = 'stylized'>Music Player</h2>
             <img src = {AVATAR} alt = 'avatar' className = 'avatar' />
