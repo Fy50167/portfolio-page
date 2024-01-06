@@ -20,8 +20,9 @@ function MusicPlayer() {
     const musicPlayer = useRef();
 
     const playPause = () => {
-      setIsPlaying(!isPlaying);
-      if (isPlaying) {
+      const prevValue = isPlaying
+      setIsPlaying(!prevValue);
+      if (!prevValue) {
         musicPlayer.current.play();
       } else {
         musicPlayer.current.pause();
@@ -50,12 +51,12 @@ function MusicPlayer() {
             <img className = 'close position-absolute mouse-pointer' src = {CLOSE} onClick = {expandCollapse} />
             <h2 className = 'stylized'>Music Player</h2>
             <img src = {AVATAR} alt = 'avatar' className = 'avatar' />
-            <h3 className = 'stylized'>{songTitle}</h3>
+            <h3 className = 'stylized'></h3>
 
             <div>
                 <div className= 'd-flex justify-content-center'>
                     <p>
-                        0:0
+                        0:0/
                     </p>
                     <p>
                         0:0
