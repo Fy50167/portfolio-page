@@ -20,16 +20,11 @@ function MusicPlayer() {
 
     const musicPlayer = useRef();
 
-    useEffect(() => {
-      setDuration(Math.floor(musicPlayer.duration));
-    }, [musicPlayer?.current?.loadedmetadata, musicPlayer?.current?.readyState]);
-
     const calculateTime = (secs) => {
       const minutes = Math.floor(secs / 60);
-      const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
       const seconds = Math.floor(secs % 60);
       const returnedSeconds = secs < 10 ? `0${seconds}` : `${seconds}`;
-      return `${returnedMinutes} : ${returnedSeconds}` 
+      return `${minutes} : ${returnedSeconds}` 
     }
 
     const playPause = () => {
@@ -55,12 +50,13 @@ function MusicPlayer() {
     return (
         <>
           {(isCollapsed?
+          
             <div className = 'position-fixed btn music-player d-flex justify-content-center align-items-center' onClick = {expandCollapse}>
               <img className = 'music-logo' src = {MUSIC} />
             </div>
           :
           <div className = 'position-fixed d-flex flex-column justify-content-evenly align-items-center music-player open py-3'>
-            <audio ref = {musicPlayer} src = {ASHES} preload = 'metadata'></audio>
+            <audio ref = {musicPlayer} src = {ASHES} preload = "metadata" onLoadedMetadata = {() => setDuration(Math.floor(musicPlayer.current.duration))}></audio>
             <img className = 'close position-absolute mouse-pointer' src = {CLOSE} onClick = {expandCollapse} />
             <h2 className = 'stylized'>Music Player</h2>
             <img src = {AVATAR} alt = 'avatar' className = 'avatar' />
@@ -72,7 +68,7 @@ function MusicPlayer() {
                         0:0/
                     </p>
                     <p>
-                        {(duration && !isNan(duration)) && calculateTime(duration)}
+                        {(duration) && calculateTime(duration)}
                     </p>
                 </div>
                     <input
