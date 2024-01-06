@@ -17,8 +17,14 @@ function MusicPlayer() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(true);
     const [duration, setDuration] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
 
     const musicPlayer = useRef();
+    const progressBar = useRef();
+
+    useEffect(() => {
+      setCurrentTime(musicPlayer.current.currentTime);
+    }, [musicPlayer.current.currentTime]);
 
     const calculateTime = (secs) => {
       const minutes = Math.floor(secs / 60);
@@ -65,7 +71,7 @@ function MusicPlayer() {
             <div>
                 <div className= 'd-flex justify-content-center'>
                     <p>
-                        0:0/
+                        0:0
                     </p>
                     <p>
                         {(duration) && calculateTime(duration)}
@@ -73,6 +79,8 @@ function MusicPlayer() {
                 </div>
                     <input
                       type="range"
+                      ref = {progressBar}
+                      defaultValue = '0'
                   />
             </div>
             
