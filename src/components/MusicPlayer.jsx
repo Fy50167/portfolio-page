@@ -20,10 +20,6 @@ function MusicPlayer() {
     const musicPlayer = useRef();
     const progressBar = useRef();
 
-    useEffect(() => {
-      setCurrentTime(musicPlayer.current.currentTime);
-    }, [musicPlayer.current.currentTime]);
-
     const calculateTime = (secs) => {
       const minutes = Math.floor(secs / 60);
       const seconds = Math.floor(secs % 60);
@@ -60,7 +56,7 @@ function MusicPlayer() {
             </div>
           :
           <div className = 'position-fixed d-flex flex-column justify-content-evenly align-items-center music-player open py-3'>
-            <audio ref = {musicPlayer} src = {currentSong.url} onLoadedmetadata = {() => setDuration(Math.floor(musicPlayer.current.duration))} onTimeUpdate={() => setCurrentTime(Math.floor(musicPplayer.current.currentTime))}></audio>
+            <audio ref = {musicPlayer} src = {currentSong.url} onLoadedmetadata = {() => setDuration(Math.floor(musicPlayer.current.duration))} onTimeUpdate={() => setCurrentTime(Math.floor(musicPlayer.current.currentTime))}></audio>
             <img className = 'close position-absolute mouse-pointer' src = {CLOSE} onClick = {expandCollapse} />
             <h2 className = 'stylized'>Music Player</h2>
             <img src = {AVATAR} alt = 'avatar' className = 'avatar' />
@@ -69,7 +65,7 @@ function MusicPlayer() {
             <div>
                 <div className= 'd-flex justify-content-center'>
                     <p>
-                        0:0
+                        {(currentTime) && calculateTime(currentTime)}/
                     </p>
                     <p>
                         {(duration) && calculateTime(duration)}
