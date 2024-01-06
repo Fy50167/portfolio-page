@@ -21,6 +21,11 @@ function MusicPlayer() {
 
     const playPause = () => {
       setIsPlaying(!isPlaying);
+      if (isPlaying) {
+        musicPlayer.current.play();
+      } else {
+        musicPlayer.current.pause();
+      }
     }
 
     const expandCollapse = () => {
