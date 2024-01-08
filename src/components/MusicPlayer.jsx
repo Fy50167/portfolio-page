@@ -29,7 +29,13 @@ function MusicPlayer() {
         setIsPlaying(true);
       }
       hasPageBeenRendered.current = true;
-    }, [currentSong])
+    }, [currentSong]);
+
+    useEffect(() => {
+      if (currentTime === duration) {
+        goForward();
+      }
+    }, [currentTime]);
 
     const calculateTime = (secs) => {
       const minutes = Math.floor(secs / 60);
