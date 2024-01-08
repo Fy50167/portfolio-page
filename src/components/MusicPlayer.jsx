@@ -14,33 +14,34 @@ function MusicPlayer() {
     const [isCollapsed, setIsCollapsed] = useState(true);
     const [duration, setDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
-    const [songs, setSongs] = useState(songlist);
     const [songIndex, setSongIndex] = useState(0);
     const [currentSong, setCurrentSong] = useState(songlist[0]);
 
     const musicPlayer = useRef();
     const progressBar = useRef();
     const hasPageBeenRendered = useRef(false);
+    const pageRendered2 = useRef(false);
 
     useEffect(() => {
       if (hasPageBeenRendered.current) {
         musicPlayer.current.play();
-        musicPlayer.current.volume = 0.5;
+        musicPlayer.current.volume = 0.4;
         setIsPlaying(true);
       }
       hasPageBeenRendered.current = true;
     }, [currentSong]);
 
     useEffect(() => {
-      if (currentTime === duration) {
-        goForward();
-      }
+        if (currentTime === duration && duration !== 0) {
+          goForward();
+        }
+      pageRendered2.current = true;
     }, [currentTime]);
 
     const calculateTime = (secs) => {
       const minutes = Math.floor(secs / 60);
       const seconds = Math.floor(secs % 60);
-      const returnedSeconds = secs < 10 ? `0${seconds}` : `${seconds}`;
+      const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
       return `${minutes}:${returnedSeconds}` 
     }
 
@@ -69,6 +70,15 @@ function MusicPlayer() {
       setCurrentTime(Math.floor(musicPlayer.current.currentTime));
     }
 
+    const changeTime = () => {
+      setCurrentTime(Math.floor(musicPlayer.current.currentTime));
+      progressBar.current.value = currentTime/duration * 100;
+    }
+
+    const moveInSong = () => {
+      musicPlayer.current.currentTime = progressBar.current.value / 100 * duration;
+    }
+
     const changeSong = ((i) => {
       setSongIndex(i);
       setCurrentSong(songlist[i]);
@@ -90,13 +100,11 @@ function MusicPlayer() {
       }
     };
 
-    
-
     return (
         <>
-          <audio ref = {musicPlayer} src = {currentSong.url} onLoadedMetadata = {setTimes} onTimeUpdate={() => setCurrentTime(Math.floor(musicPlayer.current.currentTime))}></audio>
-          {(isCollapsed?
+          <audio ref = {musicPlayer} src = {currentSong.url} onLoadedMetadata = {setTimes} onTimeUpdate={changeTime}></audio>
           
+          {(isCollapsed?
             <div className = 'position-fixed btn music-player d-flex justify-content-center align-items-center' onClick = {expandCollapse}>
               <img className = 'music-logo' src = {MUSIC} />
             </div>
@@ -120,6 +128,8 @@ function MusicPlayer() {
                       type="range"
                       ref = {progressBar}
                       defaultValue = '0'
+                      className = 'duration'
+                      onChange = {moveInSong}
                   />
             </div>
             
