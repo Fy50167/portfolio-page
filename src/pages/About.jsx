@@ -38,10 +38,9 @@ export default function About() {
                             <button onClick = {() => changeScroll() } className = 'fade-down delay-2 animated position-absolute btn btn-arrow z-2'><img src = {DOWN} className = 'arrow' /></button>
                             <div className = 'fade-down delay-1 animated w-25'>
                                 <h2 className = 'stylized'>About Me</h2>
-                                <p>Full freelance stack web developer and software engineer based in Southern California. Proficient in
-                                    multiple technologies such as node, MySQL, noSQL, the MERN stack, Liquid, but with a heavy
-                                    specialization in the MERN stack and all things React. Also studying other languages such as Python,
-                                    C#, and Java as I apply for junior developer positions.  
+                                <p>Full-stack web developer UCSD grad based in Southern California. Specializing in front-end
+                                    development via React but also proficient in multiple back-end technologies such as MySQL, NoSQL, GraphQL,
+                                    and Python. 
                                 </p>    
                             </div>           
                             <img className = 'portrait fade-down delay-3 animated' src = {ME} alt = 'self-image' />
@@ -88,10 +87,9 @@ export default function About() {
                 <div className = 'mobile page-margin w-100 h-auto d-flex flex-column align-items-center position-relative justify-content-evenly z-2'>
                         <div className = 'text-div'>
                             <h2 className = 'stylized'>About Me</h2>
-                            <p>Web developer and software engineer based in Southern California proficient in
-                                    multiple technologies such as node, MySQL, noSQL, the MERN stack, Liquid, and Python.
-                                    Although lacking in knowledge concerning other languages such as C++ and Java, I intend 
-                                    to learn them once I've really mastered the languages that I'm working with right now!
+                            <p>Full-stack web developer UCSD grad based in Southern California. Specializing in front-end
+                                development via React but also proficient in multiple back-end technologies such as MySQL, NoSQL, GraphQL,
+                                and Python. 
                             </p>    
                         </div>           
                         <img className = 'portrait' src = {ME} alt = 'self-image' />
